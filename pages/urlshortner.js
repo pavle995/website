@@ -9,6 +9,7 @@ export default function UrlShortner() {
 
     function handleClick() {
         try {
+            console.log("very beggining")
             let payload = new URLSearchParams();
             console.log("Test 1")
             payload.append('url', url)
