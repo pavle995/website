@@ -9,14 +9,21 @@ export default function UrlShortner() {
 
     function handleClick() {
         try {
-            const payload = new URLSearchParams();
+            let payload = new URLSearchParams();
+            console.log("Test 1")
             payload.append('url', url)
+            console.log("Test 2")
             fetch(`http://ec2-15-161-149-189.eu-south-1.compute.amazonaws.com/short`,
                 {
                     method: 'POST',
-                    body: payload,
+                    body: payload
                 })
-                .then((res) => res.json())
+                .then((res) => {
+                    const r = res.json()
+                    console.log("Test 3")
+                    console.log(r)
+                    return r
+                })
                 .then((data) => {
                     console.log(data)
                     const shortUrl = "http://ec2-15-161-149-189.eu-south-1.compute.amazonaws.com/".concat(data.shortUrl)
