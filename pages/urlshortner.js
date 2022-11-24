@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Link from 'next/link'
 
 
@@ -14,8 +15,9 @@ export default function UrlShortner() {
                 {
                     method: 'POST',
                     body: payload,
+                    mode: 'no-cors'
                 })
-                .then((res) => console.log(res))
+                .then((res) => res.json())
                 .then((data) => {
                     setShortUrl(data.shortUrl)
                 })
