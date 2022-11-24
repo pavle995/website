@@ -18,7 +18,6 @@ export default function UrlShortner() {
                 })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data)
                     const shortUrl = "http://ec2-15-161-149-189.eu-south-1.compute.amazonaws.com/".concat(data.shortUrl)
                     setShortUrl(shortUrl)
                 })
