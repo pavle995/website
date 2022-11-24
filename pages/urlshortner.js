@@ -16,11 +16,13 @@ export default function UrlShortner() {
                     method: 'POST',
                     body: payload,
                 })
-                .then((res) => res.json())
+                .then((res) => {console.log(res)})
                 .then((data) => {
-                    const shortUrl = "http://ec2-15-161-149-189.eu-south-1.compute.amazonaws.com/".concat(data.shortUrl)
-                    setShortUrl(shortUrl)
+                    setShortUrl(data.shortUrl)
                 })
+            console.log(shortUrl)
+            const shortUrl = "http://ec2-15-161-149-189.eu-south-1.compute.amazonaws.com/".concat(data.shortUrl)
+            setShortUrl(shortUrl)
         } catch (err) {
             console.log(err)
         }
